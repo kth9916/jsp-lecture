@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ page import = "java.sql.*, java.util.*, java.text.*" %>
+<% request.setCharacterEncoding("EUC-KR"); %>
+
+<%@ include file="dbconn_oracle.jsp" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>자료 저장</title>
+</head>
+<body>
+<%
+	String na = request.getParameter("name");
+	String em = request.getParameter("email");
+	String sub = request.getParameter("subject");
+	String cont = request.getParameter("content");
+		
+	int pos = 0;
+	if(cont.length() == 1){
+		cont = cont + " ";
+	}
+	
+	while((pos = cont.indexOf("\'",pos)) != -1){		// -1이 아닐 때
+		String left = cont.substring(0,pos);
+		String right = cont.substring(pos, cont.length());
+		cont = left + "\'" + right;
+		pos += 2;
+	}
+	java.util.Date yymmdd = new java.util.Date();
+	SimpleDateFormat myformat = new SimpleDateFormat ("yy-MM-d h:mm a");
+	String ymd = myformat.format(yymmdd);
+	
+	String sql = null;
+	Statement st = null;
+	ResultSet rs = null;
+	int cnt = 0;
+	
+	try{
+		st = conn.createStatement();
+		rs = st.executeQuery(sql);
+		
+		sql = "INSERT INTO guestboard (name, email, inputdate, subject, content)";
+		sql = sql + "values (" + na + "','" + em + "','" + ymd + "','" + sub + "','" + cont + ")";
+		
+		cnt = st.executeUpdate(sql);
+		
+		//out.println(sql);
+		//if(true) return;
+		
+		if(cnt > 0){
+			out.println("데이터가 성공적으로 입력 되었습니다.");
+		}else{
+			out.println("데이터가 입력되지 않았습니다.");
+		}
+		
+	}catch (Exception e){
+		out.println(e);
+	}finally{
+		if (rs != null)
+			rs.close();
+		if( st != null)
+			st.close();
+		if(conn != null)
+			conn.close();
+	}
+
+
+
+
+
+
+
+
+%>
+
+<jsp:forward page = "dbgb_show.jsp"/>
+
+</body>
+</html>

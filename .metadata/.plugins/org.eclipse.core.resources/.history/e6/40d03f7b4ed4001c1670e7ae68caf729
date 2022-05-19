@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ page import="java.sql.*, java.util.*, java.text.*" %>
+<% request.setCharacterEncoding("EUC-KR"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>게시판</title>
+<link href="filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<CENTER>
+	<%@ include file="dbconn_oracle.jsp" %>
+	<P>
+		<table border=0 width=600 cellpadding=4 cellspacing=0>
+			<%
+			Vector name = new vector();			
+			Vector email = new vector();
+			Vector subject = new vector();
+			Vector inputdate = new vector();
+			Vector content = new vector();
+			
+			%>
+		</table>
+
+</CENTER>
+
+</body>
+</html>

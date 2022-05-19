@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ page import="java.sql.*, java.util.*, java.text.*" %>
+<% request.setCharacterEncoding("EUC-KR"); %>
+<html>
+<head>
+<title>게시판</title>
+<link href="filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<CENTER>
+	<%@ include file="dbconn_oracle.jsp" %>
+	<P>
+		<table border=0 width=600 cellpadding=4 cellspacing=0>
+			<%
+			Vector name = new Vector();			
+			Vector email = new Vector();
+			Vector subject = new Vector();
+			Vector inputdate = new Vector();
+			Vector content = new Vector();
+			
+			int where =1;
+			
+			int totalgroup = 0;
+			int maxpages = 2;
+			int startpage = 1;
+			int endpage = startpage + maxpages - 1;
+			int wheregroup = 1;
+			
+			if(request.getParameter("go") != null){
+				where = Integer.parseInt(request.getParameter("go"));
+				wheregroup = (where - 1) / maxpages + 1;
+				startpage = (wheregroup - 1) * maxpages + 1;
+				endpage = startpage + maxpages - 1;
+			}
+			
+			else if (request.getParameter("gogroup") != null){
+				wheregroup = Integer.parseInt(request.getParameter("gogroup"));
+				startpage = (wheregroup - 1) * maxpages + 1;
+				where = startpage;
+				endpage = startpage + maxpages - 1;
+			}
+			
+			int nextgroup = wheregroup + 1;
+			int priorgroup = wheregroup - 1;
+			
+			int nextpage = where + 1;
+			int priorpage = where - 1;
+			int startrow = 0;
+			int endrow = 0;
+			int maxrows = 2;
+			int totalrows = 0;
+			int totalpages = 0;
+			
+			String em = null;
+			Statement st = null;
+			ResultSet rs = null;
+			
+			try{
+				st = conn.createStatement();
+				String sql = "select * from guestboard order by inputdate";
+				rs = st.executeQuery(sql);
+				
+				if(!(rs.next())){
+					out.println("게시판에 올린 글이 없습니다.");
+				}else{
+					do{
+						name.addElement(rs.getString("name"));
+						email.addElement(rs.getString("email"));
+						subject.addElement(rs.getString("subject"));
+						inputdate.addElement(idate);
+						content.addElement(rs.getString("content"));
+					}while(rs.next());
+				}
+			}
+			
+			%>
+		</table>
+
+</CENTER>
+
+</body>
+</html>

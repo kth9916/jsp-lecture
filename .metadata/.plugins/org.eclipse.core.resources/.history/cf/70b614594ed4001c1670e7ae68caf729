@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ page import="java.sql.*, java.util.*, java.text.*" %>
+<% request.setCharacterEncoding("EUC-KR"); %>
+<%@ include file = "dbconn_oracle.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>게시</title>
+<link href="filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<CENTER>
+<%
+	String sql = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String inputdate = request.getParameter("inputdate");
+	
+	try{
+		sql="select * from guestboard "
+	}
+
+
+
+
+
+
+
+%>	
+</CENTER>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+	<Script language="javascript">
+		function check(){
+			with(document.msgwrite){
+				if(name.value.length == 0){
+					alert("이름을 입력해 주세요");
+					name.focus();
+					return false;
+				}
+				if(subject.value.length == 0){
+					alert("제목 입력해 주세요");
+					subject.focus();
+					return false;
+				}
+				if(content.value.length == 0){
+					alert("내용을 입력해 주세요");
+					content.focus();
+					return false;
+				}
+			}
+		}
+	</Script>
+	<link href="filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<p>
+	<Form name="msgwrite" method="post" action="dbgb_save.jsp">
+		<center>
+		<table width="600" cellspacing="0" cell>
+		
+		
+		
+		</table>
+		
+		
+		
+		
+		
+		
+		
+		
+		</center>
+	</Form>
+</body>
+</html>

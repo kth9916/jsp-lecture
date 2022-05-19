@@ -1,0 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ page import = "java.sql.*, java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert 후 출력 페이지</title>
+<link href = "filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<%@ include file = "db_conn_oracle.jsp" %>
+<%
+	//Vector 컬렉션을 생성해서 DB에서 가져온 데이터를 저장하는 Vector 객체 생성
+	Vector name = new Vector();		// 이름 컬럼만 저장하는 벡터
+	Vector email = new Vector();
+	Vector inputdate = new Vector();
+	Vector subject = new Vector();
+	Vector content = new Vector();
+	
+	String sql = null;
+	Statement st = null;
+	ResultSet rs = null;			// Select 할 결과 레코드 셋을 담는 객체
+	
+	
+	try{
+		sql = "select * from guestboard2 order by inputdate desc";	
+		st = conn.createStatement();
+		rs = st.executeQuery(sql);
+		
+		if(!(rs.next())){
+			out.println("블로그에 올린 글이 없습니다");
+		}else{		// DB에서 가져온 값을 출력 시작
+			do{
+%>				
+			<Table width = "600" border = "1">
+				<tr><td colspan = "2" align="center"><h3><%= rs.getString("subject") %></h3></td></tr>
+				<tr><td> 글쓴이 : <%=rs.getString("name") %></td><td>email : <%= rs.getString("email") %></td></tr>
+				<tr><td colspan = "2">글쓴날짜 : <%= rs.getString("inputdate") %></td></tr>
+				<tr><td></td><td></td></tr>
+			</Table>
+
+<%			}while(rs.next());		// rs에 값이 존재하는동안 계속 순환하면서 출력.
+
+			
+		}		// DB에서 가져온 값을 출력 끝
+	}catch(Exception ex){
+		out.println(ex.getMessage());
+	}finally{
+		if(rs != null)
+			rs.close();
+		if(st != null)
+			st.close();
+		if(conn != null)
+			conn.close();
+	}
+	
+
+%>
+</body>
+</html>

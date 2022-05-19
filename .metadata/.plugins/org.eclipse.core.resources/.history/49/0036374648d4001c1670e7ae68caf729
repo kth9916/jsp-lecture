@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ page import="java.sql.*, java.util.*, java.text.*" %>
+<% request.setCharacterEncoding("EUC-KR"); %>
+<%@ include file = "dbconn_oracle.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>게시</title>
+<link href="filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<CENTER>
+<%@ include file = "dbconn_oracle.jsp" %>
+	String sql = null
+
+
+
+
+
+
+
+%>	
+</CENTER>
+
+</body>
+</html>

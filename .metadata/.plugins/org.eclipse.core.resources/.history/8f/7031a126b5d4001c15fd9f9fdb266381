@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link href = "filegb.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form name="filegbwrite" method="post" action="dbgb_save.jsp">
+	<table width="600">
+		<tr>
+			<td colspan="2"> 글쓰기 </td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td>E-mail</td>
+		</tr>
+		<tr>
+			<td>제목</td>
+			<td>내용</td>
+		</tr>
+	
+	</table>
+</form>
+
+</body>
+</html>
