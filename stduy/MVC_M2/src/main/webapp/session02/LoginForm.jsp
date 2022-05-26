@@ -28,6 +28,7 @@
 <h2> 로그인 페이지 </h2>
 
 <span style="color:red; font-size:1.2em;">
+	<!-- session.getattribute는 그 사용자에게만 request.getattribute는 모든 사용자 -->
 	<!-- 로그인 에러 메세지 출력 -->
 	<%= request.getAttribute("LoginErrMsg") == null ? "" : request.getAttribute("LoginErrMsg")
 	
