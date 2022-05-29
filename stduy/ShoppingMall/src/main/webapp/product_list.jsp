@@ -6,7 +6,7 @@
 <BODY>
 
 <!-- DB 연결 설정 --> 
-<%@ include file = "dbconn_mysql.jsp" %>
+<%@ include file = "dbconn_oracle.jsp" %>
 
 
 <P align=center>
@@ -152,6 +152,10 @@
   st = conn.createStatement();
   String sql = "select * from product";
   sql = sql+ cond+  " order by id";
+  
+  //out.println(sql);
+  //if(true) return;
+  
   rs = st.executeQuery(sql);
   if (!(rs.next()))  {
    out.println("상품이 없습니다");
@@ -177,9 +181,14 @@
    totalgroup = (totalpages-1)/maxpages +1;
    if (endpage > totalpages) 
     endpage=totalpages;
+   
+   
+   
    for(int j=startrow;j<=endrow;j++) {
     id= ( (Long)keyid.elementAt(j) ).longValue();
     downprice=nf.format( ((Integer)dprice.elementAt(j)).intValue() ); 
+    
+    
     switch ( Integer.parseInt((String)cat.elementAt(j)) ) {
      case 11:  
       category="가구";

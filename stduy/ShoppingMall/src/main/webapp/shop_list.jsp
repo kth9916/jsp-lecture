@@ -6,7 +6,7 @@
 <SCRIPT language="javascript">
  function view(temp) {
   if (temp.length >0) { 
-   url = "http://localhost:8787/ShoppingMall/image/" + temp;
+   url = "http://localhost:8787/ShoppingMall/upload/" + temp;
    window.open(url, "win", "height=350,width=450,toolbar=0,menubar=0,scrollbars=1,resizable=1,status=0");
   }
  }
@@ -15,7 +15,7 @@
 <BODY>
 
 <!-- DB 연결 설정 --> 
-<%@ include file = "dbconn_mysql.jsp" %>
+<%@ include file = "dbconn_oracle.jsp" %>
 
 
 <P align=center>
@@ -83,7 +83,7 @@
  Vector large=new Vector();
  Vector description=new Vector();
  
- String url = "http://localhost:8787/ShoppingMall/image/";
+ String url = "http://localhost:8787/ShoppingMall/upload/";
  
  NumberFormat nf= NumberFormat.getNumberInstance();
  
@@ -165,6 +165,7 @@
     out.println("시중가: <STRIKE>"+ pricestr+"</STRIKE>원&nbsp;&nbsp;");  
     out.println("판매가: "+ dpricestr+"원");  
     out.println("</TD></TR>"); 
+    
     out.println("<FORM method=post name=search action=\"sale.jsp\">");
 	out.println("<TR>");
     out.println("<TD align=right >");
