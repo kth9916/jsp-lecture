@@ -13,7 +13,7 @@
 <BODY>
 
 <!-- DB 연결 설정 --> 
-<%@ include file = "dbconn_oracle.jsp" %>
+<%@ include file = "dbconn_mysql.jsp" %>
 
 
 <P align=center>
@@ -98,7 +98,6 @@
     pricestr=nf.format(price); 
     hap=nf.format(price*qty); 
     total=total+(price*qty);
-    
     out.println("<FORM method=post action=\'sale_upd.jsp\'>");   
     out.println("<TR>");
     out.println("<TH width=5%  bgcolor=#eeeeee>");
@@ -114,10 +113,8 @@
     out.println("<INPUT type=hidden name=cat value="+ca+">");
     out.println("<INPUT type=hidden name=pname value="+pn+">");
     out.println("<INPUT type=submit value=수정>");
-    
     out.println("<INPUT type=button value=삭제 onClick=\"setvalue(this.form);\">");
     out.println("</TD>");
-    
     out.println("<TD width=10% bgcolor=#eeeeee align=right>");
     out.println(pricestr+ "</TD>");
     out.println("<TD width=10% bgcolor=#eeeeee align=right>");

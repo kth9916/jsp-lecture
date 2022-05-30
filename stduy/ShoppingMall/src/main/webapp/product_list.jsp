@@ -6,7 +6,7 @@
 <BODY>
 
 <!-- DB 연결 설정 --> 
-<%@ include file = "dbconn_oracle.jsp" %>
+<%@ include file = "dbconn_mysql.jsp" %>
 
 
 <P align=center>
@@ -153,16 +153,17 @@
   String sql = "select * from product";
   sql = sql+ cond+  " order by id";
   
-  //out.println(sql);
-  //if(true) return;
+ // out.println(sql); 
+ // if (true) return; 
   
+ 
   rs = st.executeQuery(sql);
   if (!(rs.next()))  {
    out.println("상품이 없습니다");
   } else {
    do {
     keyid.addElement(new Long(rs.getLong("id")));
-    cat.addElement(rs.getString("category"));
+    cat.addElement(rs.getString("category"));         //
     pname.addElement(rs.getString("pname"));
     sname.addElement(rs.getString("sname"));
     dprice.addElement(new Integer(rs.getInt("downprice")));

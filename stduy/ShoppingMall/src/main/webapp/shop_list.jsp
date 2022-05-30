@@ -15,7 +15,7 @@
 <BODY>
 
 <!-- DB 연결 설정 --> 
-<%@ include file = "dbconn_oracle.jsp" %>
+<%@ include file = "dbconn_mysql.jsp" %>
 
 
 <P align=center>
@@ -84,7 +84,6 @@
  Vector description=new Vector();
  
  String url = "http://localhost:8787/ShoppingMall/upload/";
- 
  NumberFormat nf= NumberFormat.getNumberInstance();
  
  int stocki;
@@ -101,7 +100,7 @@
  int priorpage = where-1;
  int startrow=0;
  int endrow=0;
- int maxrows=3;
+ int maxrows=10;
  int totalrows=0;
  int totalpages=0;
  
@@ -165,7 +164,6 @@
     out.println("시중가: <STRIKE>"+ pricestr+"</STRIKE>원&nbsp;&nbsp;");  
     out.println("판매가: "+ dpricestr+"원");  
     out.println("</TD></TR>"); 
-    
     out.println("<FORM method=post name=search action=\"sale.jsp\">");
 	out.println("<TR>");
     out.println("<TD align=right >");

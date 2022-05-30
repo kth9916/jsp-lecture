@@ -12,7 +12,7 @@
 <BODY>
 
 <!-- DB 연결 설정 --> 
-<%@ include file = "dbconn_oracle.jsp" %>
+<%@ include file = "dbconn_mysql.jsp" %>
 
 
 <%
@@ -28,7 +28,7 @@
    pn=request.getParameter("pname");
   
  //pn = new String(pn.getBytes("ISO-8859-1"),"euc-kr");
- //out.println(pn);
+ //out.println(pn);   
 
  String sql=null;
  //Connection con= null;
@@ -51,10 +51,12 @@
   if (!(rs.next()))  {
    out.println("해당 내용이 없습니다");
   } else {
-   small=url+rs.getString("small");
+	  
+   small = url + rs.getString("small");
    
-   //out.println(small);
-   //if (true) return;
+ 
+   // out.println(small);
+   // if (true) return;
    
    out.println("<TABLE width=500 border=0 >");
    out.println("<TR><TH rowspan=3>");
