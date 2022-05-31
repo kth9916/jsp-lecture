@@ -1,0 +1,4 @@
+
+
+logon02 : LogonDTO.java , LogonDAO.java
+member02 : 회원 가입 처리(DB에 insert - form), ID와 Pass 인증 처리 : <== AJAX 사용해서 처리

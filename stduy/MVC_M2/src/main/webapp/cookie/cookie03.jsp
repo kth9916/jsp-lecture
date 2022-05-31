@@ -8,25 +8,23 @@
 </head>
 <body>
 
-<%		//쿠키 삭제 : cookie.setMaxAge(0); 으로 두면 자동 삭제
+<%   //쿠키 삭제 : cookie.setMaxAge(0); 
 
-	Cookie[] cookies = request.getCookies();
-
-	for(int i=0; i <cookies.length; i++){
-		cookies[i].setPath(request.getContextPath());
-		cookies[i].setMaxAge(0);	// 모든 쿠키의 정보를 삭제, <서버에서 설정만 구성>
+	Cookie[] cookies = request.getCookies(); 
+	
+	for (int i = 0 ; i < cookies.length ; i++ ){
+		cookies[i].setPath(request.getContextPath()) ; 
+		cookies[i].setMaxAge(0); // 모든 쿠키의 정보를 삭제 , <서버에서 설정만 구성> 
 		
-		// 클라이언트에 전송(적용) : response.addCookie (cookie[i]);
+		//클라이언트에 전송(적용) : response.addCookie (cookies[i]);   
 		response.addCookie(cookies[i]);
 		
-		out.println("쿠키 삭제 성공");
-		
-		
+		out.println("쿠키 삭제 성공 "); 
+			
 	}
-	
-	// 페이지 이동
-	response.sendRedirect("cookie02.jsp");
 
+	//페이지 이동 	
+	response.sendRedirect("cookie02.jsp"); 
 %>
 
 </body>

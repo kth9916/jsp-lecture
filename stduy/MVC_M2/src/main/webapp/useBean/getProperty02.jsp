@@ -7,13 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:useBean id="person" class="dao.Person" scope="request"></jsp:useBean>
-	<jsp:setProperty property="id" name="person" value="20220606" />
-	<jsp:setProperty property="na" name="person" value="현충일(휴일)" />
+	<jsp:useBean id="person" class = "dao.Person" scope = "request" />
+	<jsp:setProperty name = "person" property = "id" value ="20220606" /> 
+	<jsp:setProperty name="person" property="name" value= "현충일(휴일)"/>
 	
-	<p> 아이디 : <jsp:getProperty property="id" name="person"/>
-	<p> 이름 : <jsp:getProperty property="na" name="person"/>
+	<p> 아이디 : <jsp:getProperty name= "person" property = "id" /> 
+	<p> 이름 : <jsp:getProperty name = "person" property = "name" /> 
 	
 	
+
+
 </body>
 </html>

@@ -1,17 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-<form action="session01_process.jsp" method="post">
-	<p> ¾ÆÀÌµğ : <input type="text" name="id" >
-	<p> ºñ¹Ğ¹øÈ£ : <input type="password" name="password" >
-	<p><input type="submit" value = "Àü¼Û" >
+<form action = "session01_process.jsp" method = "post">
+	<p> ì•„ì´ë”” : <input type = "text" name = "id">
+	<p> ë¹„ë°€ë²ˆí˜¸ : <input type = "password" name = "passwd" > 
+	<p> <input type = "submit" value = "ì „ì†¡">
+
 </form>
 
 </body>

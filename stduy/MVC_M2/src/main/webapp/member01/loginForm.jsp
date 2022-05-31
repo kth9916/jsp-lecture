@@ -11,6 +11,7 @@ try{
 	//id세션 속성의 값을 얻어내서 id변수에 저장
 	//인증된 사용자의 경우  id세션 속성의 값 null또는 공백이 아님
 	id = (String)session.getAttribute("id");
+
 %>
 
 <%if(id == null || id.equals("")){ //인증되지 않은 사용자 영역%>
