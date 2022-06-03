@@ -1,0 +1,17 @@
+package polymorphism_2_3_1;
+
+public class LgTV {
+	
+	public void turnOn() {
+		System.out.println("LgTV -- 전원을 켠다");
+	}
+	public void turnOff() {
+		System.out.println("LgTV -- 전원을 끈다");
+	}
+	public void soundUp() {
+		System.out.println("LgTV -- 소리를 울린다");
+	}
+	public void soundDown() {
+		System.out.println("LgTV -- 소리를 내린다.");
+	}
+}
