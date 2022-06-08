@@ -9,9 +9,10 @@ public class LgTV {
 		System.out.println("LgTV -- 전원을 끈다");
 	}
 	public void soundUp() {
-		System.out.println("LgTV -- 소리를 울린다");
+		System.out.println("LgTV -- 소리를 올린다");
 	}
 	public void soundDown() {
-		System.out.println("LgTV -- 소리를 내린다.");
+		System.out.println("LgTV -- 소리를 내린다. ");
 	}
+
 }

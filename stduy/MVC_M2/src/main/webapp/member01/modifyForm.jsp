@@ -32,7 +32,7 @@
            size="20" placeholder="6~16자 숫자/문자" maxlength="16">
       <li><label for="name">이름</label>
           <input id="name" name="name" type="text" 
-           size="20" maxlength="10" value="<%=m.getName()%>">
+           size="20" maxlength="10" value="<%=m.getName() %>">
       <li><label for="address">주소</label>
           <input id="address" name="address" type="text" 
            size="30" maxlength="50" value="<%=m.getAddress()%>">

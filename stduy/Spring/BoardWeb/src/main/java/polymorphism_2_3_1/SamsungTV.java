@@ -1,11 +1,11 @@
 package polymorphism_2_3_1;
 
 public class SamsungTV {
-
+	
 	public void powerOn() {
 		System.out.println("SamsungTV -- 전원을 켠다");
 	}
-	public void powerOff() {
+	public void powerOff()	{
 		System.out.println("SamsungTV -- 전원을 끈다");
 	}
 	public void volumeUp() {
@@ -14,4 +14,5 @@ public class SamsungTV {
 	public void volumeDown() {
 		System.out.println("SamsungTV -- 소리를 내린다");
 	}
+
 }

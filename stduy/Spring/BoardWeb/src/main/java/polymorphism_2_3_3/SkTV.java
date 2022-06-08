@@ -5,11 +5,12 @@ public class SkTV implements TV {
 	@Override
 	public void powerOn() {
 		System.out.println("SkTV - 전원을 켠다.");
+
 	}
 
 	@Override
 	public void powerOff() {
-		System.out.println("SkTV - 전원을 끈다.");
+		System.out.println("SkTV - 전원을 켠다.");
 
 	}
 
