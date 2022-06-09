@@ -20,8 +20,7 @@ public class UserDAO implements UserService {
 	
 	// 2. SQL 상수 구문 적용.
 	private String USER_GET = "select * from users where id = ? and password = ?";
-	private String USER_INSERT = "insert into users (id, password, name, role) "
-			+ " values (?,?,?,?)";
+	private String USER_INSERT = "insert into users values (?,?,?,?)";
 	
 	// 3. CRUD 기능의 메소드 구현
 		// 회원 정보 검색 (ID와 password를 매개변수로 받아서 처리 )
@@ -42,9 +41,9 @@ public class UserDAO implements UserService {
 			
 			if(rs.next()) {		// id와 password가 일치할 때 rs.next가 true가 된다.
 				user = new UserVO();
-				user.setId(rs.getString("ID"));
-				user.setName(rs.getString("NAME"));
+				user.setId(rs.getString("ID"));				
 				user.setPassword(rs.getString("PASSWORD"));
+				user.setName(rs.getString("NAME"));
 				user.setRole(rs.getString("ROLE"));
 				
 			}

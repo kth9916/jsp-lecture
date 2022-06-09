@@ -1,6 +1,7 @@
 package com.springbook.biz.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.springbook.biz.user.UserVO;
@@ -14,8 +15,11 @@ public class UserServiceImpl implements UserService {
 		// 2. Setter 사용한 주입	(XML 설정)
 		// 3. 어노테이션을 이용한 주입 (@Autowired , )
 
-	@Autowired				// 객체 주입 (타입으로 주입), 어노테이션으로 객체 주입
-	private UserDAO userDAO;
+	//@Autowired				// 객체 주입 (타입으로 주입), 어노테이션으로 객체 주입
+	//private UserDAO userDAO;
+	
+	@Autowired
+	private UserDAOSpring userDAO;
 	
 	/*
 	//Setter를 사용해서 객체 주입	(XML 설정)
@@ -29,6 +33,10 @@ public class UserServiceImpl implements UserService {
 	}
 	*/
 	
+	public UserServiceImpl() {
+		
+	}
+
 	@Override
 	public UserVO getUser(UserVO vo) {
 		
@@ -39,7 +47,12 @@ public class UserServiceImpl implements UserService {
 	public void insertUser(UserVO vo) {
 		
 		userDAO.insertUser(vo);
+		
 	}
+
+
+	
+
 	
 	
 
